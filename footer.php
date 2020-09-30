@@ -1,0 +1,1 @@
+<?= theme()->templates()->get_template( 'footer', 'footer' ) ?>

@@ -1,0 +1,51 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "9d4ed0699330362dc770b77b355778f1",
+    "packages": [
+        {
+            "name": "alexstandiford/underpin",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alexstandiford/underpin.git",
+                "reference": "233fcf1da89b7f4150b0145dfa1e5aade215253e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alexstandiford/underpin/zipball/233fcf1da89b7f4150b0145dfa1e5aade215253e",
+                "reference": "233fcf1da89b7f4150b0145dfa1e5aade215253e",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "Underpin.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Standiford",
+                    "email": "a@alexstandiford.com"
+                }
+            ],
+            "description": "Underpin WordPress framework",
+            "time": "2020-09-30T00:20:34+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

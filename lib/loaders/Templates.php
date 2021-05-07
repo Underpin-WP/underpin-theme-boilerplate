@@ -34,6 +34,8 @@ class Templates extends Loader_Registry {
 	 */
 	protected $abstraction_class = 'Theme\Abstracts\Template';
 
+	protected $default_factory = 'Theme\Factories\Template_Instance';
+
 	protected function set_default_items() {}
 
 	/**

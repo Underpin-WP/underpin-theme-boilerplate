@@ -24,7 +24,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 abstract class Template {
 	use Theme_Templates;
 
-	protected function get_template_group() {
-		return theme()->templates()->get_key( $this );
+	protected $templates = [];
+	protected $group     = '';
+
+	public function get_templates() {
+		return $this->templates;
 	}
+
+	protected function get_template_group() {
+		return $this->group;
+	}
+
 }

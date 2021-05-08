@@ -162,7 +162,5 @@ The default entrypoint is `src/index.js`.
 
 ## Stylesheets
 
-Nope. This simply doesn't include any of that. There really isn't a good WP standard to work with, and you'll probably
-replace it with some specific flavor of your choice, anyway.
-
-It does, however, set up the `webpack.config.js` file to be easily extended to suit your needs.
+The default webpack config comes with Webpack's [postCSS loader](https://webpack.js.org/loaders/postcss-loader/), and
+can handle SCSS and CSS files. You can override the default loader by adding a postcss file to this theme.

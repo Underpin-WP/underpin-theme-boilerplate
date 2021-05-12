@@ -81,14 +81,11 @@ final class Service_Locator extends Underpin {
 	 */
 	protected function _setup() {
 
-		// Sets up the primary sidebar
-		$this->sidebars()->add( 'sidebar', 'Theme\Sidebars\Sidebar' );
-
 		// Sets up the primary menu
 		$this->menus()->add( 'primary', 'Theme\Menus\Menu' );
 
 		// Sets up templates
-		$this->templates()->add( 'index', 'Theme\Templates\Index' );
+		$this->templates()->add( 'index', 'Theme\Templat	es\Index' );
 		$this->templates()->add( 'header', 'Theme\Templates\Header' );
 		$this->templates()->add( 'footer', 'Theme\Templates\Footer' );
 	}

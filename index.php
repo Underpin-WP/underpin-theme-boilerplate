@@ -9,5 +9,8 @@
 ?>
 <?php
 get_header();
+theme()->logger()->log( 'error', 'error_test', 'This is an error test', [
+	'test' => 'this',
+] );
 echo theme()->templates()->get_template( 'index', 'loop' );
 get_footer();

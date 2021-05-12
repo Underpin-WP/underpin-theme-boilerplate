@@ -23,5 +23,4 @@ if ( ! theme()->templates()->is_valid_template( $template ) ) {
 <body class="<?php body_class(); ?>">
 <div>
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'sandbox' ); ?></a>
-	<?= $template->get_template( 'nav' ) ?>
 	<div id="content" class="site-content">

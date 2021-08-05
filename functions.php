@@ -52,9 +52,9 @@ theme()->templates()->add( 'index', [
 	'name'        => "Index Template.",
 	'group'       => 'index',
 	'templates'   => [
-		'loop'     => 'public',
-		'post'     => 'public',
-		'no-posts' => 'public',
+		'loop'     => [ 'override_visibility' => 'public' ],
+		'post'     => [ 'override_visibility' => 'public' ],
+		'no-posts' => [ 'override_visibility' => 'public' ],
 	],
 ] );
 
@@ -66,7 +66,7 @@ theme()->templates()->add( 'header', [
 	'name'        => "Header Template.",
 	'group'       => 'header',
 	'templates'   => [
-		'header' => 'public',
+		'header' => [ 'override_visibility' => 'public' ],
 	],
 ] );
 
@@ -78,6 +78,6 @@ theme()->templates()->add( 'footer', [
 	'name'        => "Index Template.",
 	'group'       => 'footer',
 	'templates'   => [
-		'footer' => 'public',
+		'footer' => [ 'override_visibility' => 'public' ],
 	],
 ] );

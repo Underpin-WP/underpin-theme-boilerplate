@@ -34,6 +34,14 @@ class Templates extends Loader_Registry {
 	 */
 	protected $abstraction_class = 'Theme\Abstracts\Template';
 
+	/**
+	 * The default factory.
+	 *
+	 * This is the default class that is called if a new item is registered using the array method.
+	 *
+	 * @since 1.0.0
+	 * @var string The name of the factory class this service locator uses.
+	 */
 	protected $default_factory = 'Theme\Factories\Template_Instance';
 
 	protected function set_default_items() {}

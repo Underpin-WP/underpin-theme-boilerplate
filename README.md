@@ -14,6 +14,7 @@ adds some useful beneftis:
 
 1. It provides a clear place to put logic, data-fetching, and other things of the sort.
 1. Templates can be nested.
+1. Templates can selectively be overridden, and extended by the child theme
 
 ### Registering a Template
 
@@ -132,7 +133,62 @@ Just like inside the `$template` context above, arbitrary data that is passed to
 `$template->get_param('key', 'fallback value')` where the first argument is the array key to grab, and the second value
 is a default value to display if the key is not set.
 
-You can learn more about the template system in [Underpin's docs](https://github.com/Underpin-WP/underpin/#template-system-trait).
+You can learn more about the template system
+in [Underpin's docs](https://github.com/Underpin-WP/underpin/#template-system-trait).
+
+## Extending Templates in Child Themes
+
+Extending this boilerplate in a child theme works exactly like extending anything else in Underpin - by hooking in at
+the right time, and registering the custom items as-necessary.
+
+### Overriding Theme Templates
+
+Any template registered in the parent theme can be overridden by matching the directory where the template is placed
+inside the child theme. For example, if you wanted to override the entire header, you could create a file from your
+child theme's root: `templates/header/header.php`. The template system will use this template instead of what's
+specified in the parent theme.
+
+### Extending The Theme
+
+You can modify anything that is registered in the parent theme from the child theme by hooking
+into `underpn/after_setup`. This is a great place to register custom stylesheets, scripts, or templates.
+
+This would go in your child theme's `functions.php` file.
+
+```php
+
+// Hook into Underpin's after_setup hook
+add_action( 'underpin/after_setup', function ( $file, $class ) {
+    
+    // If the file is the parent theme, register the things. Ensures these only register one-time
+	if ( trailingslashit( dirname( $file ) ) === trailingslashit( get_template_directory() ) ) {
+	  // Do things
+	}
+
+}
+```
+
+### Extend Templates
+
+If you're working with a child theme, you can register custom templates to existing groups by hooking just after the
+theme is set up, like so:
+
+```php
+
+// Hook into Underpin's after_setup hook
+add_action( 'underpin/after_setup', function ( $file, $class ) {
+    
+    // If the file is the parent theme, register the things. Ensures these only register one-time
+	if ( trailingslashit( dirname( $file ) ) === trailingslashit( get_template_directory() ) ) {
+	  // Add a new template group, with custom templates
+	  theme()->templates()->add('custom-template-group', [/** Arguments to register child theme-specific template **/]);
+	  
+	  // Add a new template inside an existing group. This example extends the footer to include a slogan
+	  theme()->templates()->get( 'footer' )->add_template( 'slogan',['override_visibility' => 'public'] );
+	}
+
+}
+```
 
 ## Useful Loaders
 
@@ -151,7 +207,6 @@ use them if you find you need the functionality:
 1. [Shortcode Loader](https://github.com/Underpin-WP/shortcode-loader) Create, and render custom shortcodes
 1. [Sidebar Loader](https://github.com/Underpin-WP/sidebar-loader) Create, and manage WordPress sidebars
 1. [Style Loader](https://github.com/Underpin-WP/style-loader) Create, and enqueue styles
-1. [Widget Loader](https://github.com/Underpin-WP/widget-loader) Create widgets, complete with admin settings.
 
 ## Webpack Config
 

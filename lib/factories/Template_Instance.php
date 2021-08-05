@@ -15,5 +15,6 @@ class Template_Instance extends Template {
 
 	public function __construct( $args ) {
 		$this->set_values( $args );
+		parent::__construct();
 	}
 }

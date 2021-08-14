@@ -25,8 +25,6 @@ function theme() {
 	] )->get( __FILE__ );
 }
 
-//Instantiate, and set up the template loader.
-theme()->loaders()->add( 'templates', [ 'registry' => 'Theme\Loaders\Templates' ] );
 
 /**
  * Templates.
@@ -51,6 +49,7 @@ theme()->templates()->add( 'index', [
 	'description' => "Renders the home page.",
 	'name'        => "Index Template.",
 	'group'       => 'index',
+	'root_path'   => theme()->template_dir(),
 	'templates'   => [
 		'loop'     => [ 'override_visibility' => 'public' ],
 		'post'     => [ 'override_visibility' => 'public' ],
@@ -64,6 +63,7 @@ theme()->templates()->add( 'index', [
 theme()->templates()->add( 'header', [
 	'description' => "Renders the header.",
 	'name'        => "Header Template.",
+	'root_path'   => theme()->template_dir(),
 	'group'       => 'header',
 	'templates'   => [
 		'header' => [ 'override_visibility' => 'public' ],
@@ -76,6 +76,7 @@ theme()->templates()->add( 'header', [
 theme()->templates()->add( 'footer', [
 	'description' => "Renders the home page.",
 	'name'        => "Index Template.",
+	'root_path'   => theme()->template_dir(),
 	'group'       => 'footer',
 	'templates'   => [
 		'footer' => [ 'override_visibility' => 'public' ],
